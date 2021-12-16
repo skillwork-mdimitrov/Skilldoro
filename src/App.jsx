@@ -1,7 +1,9 @@
+import {Route, Routes} from "react-router-dom";
+
 import './styles/App.scss';
 import CheckPoints from "./Pages/CheckPoints";
 import Skilldoro from "./Pages/Skilldoro";
-import {Route, Routes} from "react-router-dom";
+import Rewards from "./Pages/Rewards";
 
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Skilldoro />} />
             <Route path="/check-points" element={<CheckPoints />} />
+            <Route path="/rewards" element={<Rewards />} />
         </Routes>
     </div>
   );

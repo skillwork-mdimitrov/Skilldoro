@@ -21,7 +21,7 @@ const Header = () => {
       <Breadcrumb>
         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
         <Breadcrumb.Item href="/check-points">Check points</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Rewards</Breadcrumb.Item>
+        <Breadcrumb.Item href="/rewards">Rewards</Breadcrumb.Item>
       </Breadcrumb>
     </header>
   )
