@@ -1,2 +1,0 @@
-# Skilldoro
-Time management tool
