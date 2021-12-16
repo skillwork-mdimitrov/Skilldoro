@@ -19,8 +19,8 @@ const Header = () => {
       <h1>Skilldoro™</h1>
 
       <Breadcrumb>
-        <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-        <Breadcrumb.Item href="#">Check points</Breadcrumb.Item>
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="/check-points">Check points</Breadcrumb.Item>
         <Breadcrumb.Item href="#">Rewards</Breadcrumb.Item>
       </Breadcrumb>
     </header>
