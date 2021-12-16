@@ -1,8 +1,9 @@
-body {
-    color: yellow;
+@import './Skilldoro';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+nav ol {
+  margin: 0 !important;
 }
-
-
 
 
 
