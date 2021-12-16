@@ -1,10 +1,10 @@
 import Header from "../Components/Header"
-import Main from "../Components/Main";
+import TimersCollection from "../Components/TimersCollection";
 
 const Skilldoro = () =>
   <>
     <Header />
-    <Main/>
+    <TimersCollection />
   </>
 
 export default Skilldoro;

@@ -1,6 +1,6 @@
 import PomodoroTimer from "./PomodoroTimer";
 
-const Main = () =>
+const TimersCollection = () =>
   <main className="d-flex gap-5 flex-wrap justify-content-center">
     <PomodoroTimer />
     <PomodoroTimer />
@@ -10,10 +10,9 @@ const Main = () =>
     <PomodoroTimer />
     <PomodoroTimer />
     <PomodoroTimer />
-
   </main>
 
-export default Main;
+export default TimersCollection;
 
 /*
   main
