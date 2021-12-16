@@ -1,10 +1,10 @@
 import './styles/App.scss';
-import Main from "./Pages/Main";
+import Skilldoro from "./Pages/Skilldoro";
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      <Skilldoro />
     </div>
   );
 }
