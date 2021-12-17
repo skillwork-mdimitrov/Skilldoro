@@ -18,7 +18,7 @@ const StyledSpan = styled.span`
   border-radius: 4px;
 `;
 
-const PomodoroTimer = ({collectPoints}) => {
+const PomodoroTimer = ({collectPoints, isTimerLocked}) => {
   const PLUS = {
     "25_mins": 2000,
     "10_mins": 2000,
@@ -75,7 +75,10 @@ const PomodoroTimer = ({collectPoints}) => {
 
   return (
     <StyledTimers className="pomodoro-container d-flex flex-column align-content-center position-relative">
-      <PomodoroCompletion isTimerCompleted={isTimerCompleted}/>
+      <PomodoroCompletion
+        isTimerCompleted={isTimerCompleted}
+        isTimerLocked={isTimerLocked}
+      />
       <StyledSpan className="text-center text-black fs-4">Pomodoro</StyledSpan>
       <Countdown
         autoStart={false}
