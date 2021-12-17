@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAvebDuZ94aWip9t8VNg3Un_tKO4Lj7QzY",
@@ -14,12 +13,29 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-function writeUserData(userId, name, rewardPoints) {
-    const db = getDatabase();
+const db = getDatabase();
+
+export function writeUserData(userId, name, rewardPoints) {
     set(ref(db, 'users/' + userId), {
         username: name,
         reward_points: rewardPoints
     });
 }
 
-writeUserData(1, "Maksim Dimitrov", "1000");
+export function getUserData() {
+    const starCountRef = ref(db, 'users/');
+    let points = 0;
+    onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        points = data[1].reward_points;
+    });
+    return points;
+}
+
+getUserData();
+
+
+
+
+
+
