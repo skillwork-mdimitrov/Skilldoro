@@ -2,6 +2,10 @@ import Header from "../Components/Header"
 import TimersCollection from "../Components/TimersCollection";
 import {useEffect} from "react";
 
+/*
+  TODO Sometimes doesn't start immediately
+ */
+
 const Home = ({pointsForTheDay, collectPoints}) => {
   const alertUser = e => {
     e.preventDefault();

@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
 import { useBrowserNotifications } from 'use-browser-notifications';
+import PomodoroCompletion from "./PomodoroCompletion";
 
 const PomodoroTimer = ({collectPoints}) => {
    const PLUS = {
@@ -58,7 +59,8 @@ const PomodoroTimer = ({collectPoints}) => {
 
 
   return (
-    <div className="pomodoro-container d-inline-flex flex-column align-content-center">
+    <div className="pomodoro-container d-inline-flex flex-column align-content-center position-relative">
+      <PomodoroCompletion/>
       <ButtonGroup aria-label="Basic example">
         <Button
           variant="secondary"
