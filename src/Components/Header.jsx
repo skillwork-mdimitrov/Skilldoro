@@ -54,7 +54,7 @@ const Header = ({pointsForTheDay, resetPoints}) => {
 
   return (
     <header className="d-flex justify-content-around align-items-center flex-wrap-reverse flex-lg-nowrap mb-3">
-      <div className="points-container">
+      <div style={{flexBasis: "33%"}} className="points-container d-flex justify-content-center">
         <div className="d-flex align-items-center">
           <span title="Don't forget to upload your points before leaving">
             Points: {pointsForTheDay} - 
@@ -65,9 +65,9 @@ const Header = ({pointsForTheDay, resetPoints}) => {
           </StyledButtons>
         </div>
       </div>
-      <StyledHeading className="text-white pt-2">Skilldoro™</StyledHeading>
+      <StyledHeading style={{flexBasis: "33%"}} className="text-white pt-2 d-flex justify-content-center">Skilldoro™</StyledHeading>
 
-      <Breadcrumb className="py-3 py-lg-0">
+      <Breadcrumb className="py-3 py-lg-0 d-flex justify-content-center" style={{flexBasis: "33%"}}>
         <StyledLinks>
           <Link to="/">Home</Link>
         </StyledLinks>
