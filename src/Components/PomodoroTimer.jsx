@@ -18,7 +18,12 @@ const StyledSpan = styled.span`
   border-radius: 4px;
 `;
 
-const PomodoroTimer = ({collectPoints, isTimerLocked}) => {
+const PomodoroTimer = ({
+  collectPoints,
+  unlockNextDoro,
+  currentDoroIndex,
+  unlockedDoroIndex
+}) => {
   const PLUS = {
     "25_mins": 2000,
     "10_mins": 2000,
@@ -69,15 +74,18 @@ const PomodoroTimer = ({collectPoints, isTimerLocked}) => {
     // Show notif
     show();
 
-    // Neshto
     setIsTimerCompleted(true);
+
+    unlockNextDoro();
   }
 
   return (
     <StyledTimers className="pomodoro-container d-flex flex-column align-content-center position-relative">
       <PomodoroCompletion
         isTimerCompleted={isTimerCompleted}
-        isTimerLocked={isTimerLocked}
+        isTimerUnlocked={
+          currentDoroIndex === unlockedDoroIndex || currentDoroIndex < unlockedDoroIndex
+        }
       />
       <StyledSpan className="text-center text-black fs-4">Pomodoro</StyledSpan>
       <Countdown

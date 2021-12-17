@@ -32,7 +32,7 @@ const StyledLocked = styled(FaLock)`
   z-index: 100;
 `
 
-const PomodoroCompletion = ({isTimerCompleted = false, isTimerLocked = false}) => {
+const PomodoroCompletion = ({isTimerCompleted = false, isTimerUnlocked}) => {
   return (
     <>
       {isTimerCompleted && (
@@ -41,8 +41,8 @@ const PomodoroCompletion = ({isTimerCompleted = false, isTimerLocked = false}) =
           <StyledOpaqueDiv></StyledOpaqueDiv>
         </>
       )}
-      {isTimerLocked && (
-        <div className="__unsafe_unlock">
+      {!isTimerUnlocked && (
+        <div>
           <StyledLocked color="white" fontSize="5rem"/>
           <StyledOpaqueDiv></StyledOpaqueDiv>
         </div>

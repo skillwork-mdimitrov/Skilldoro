@@ -76,5 +76,4 @@ const Home = ({pointsForTheDay, collectPoints, resetPoints}) => {
   )
 }
 
-
 export default Home;

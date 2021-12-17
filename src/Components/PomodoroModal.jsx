@@ -20,7 +20,7 @@ const PomodoroModal = ({show, handleClose, isShortBreak}) => {
         <Modal.Body className="fs-1 text-black text-center">
           <Countdown
             daysInHours
-            date={Date.now() + (isShortBreak ? 3000 : 600000)}
+            date={Date.now() + (isShortBreak ? 5000 : 600000)}
             onComplete={onTimerFinish}
             className="text-center"
           />
