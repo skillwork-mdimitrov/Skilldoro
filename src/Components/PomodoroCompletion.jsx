@@ -23,10 +23,14 @@ const StyledCheckmark = styled(IoCheckmarkCircleSharp)`
   z-index: 100;
 `
 
-const PomodoroCompletion = () =>
-  <>
-    <StyledCheckmark color="white"  fontSize="5rem"/>
-    <StyledOpaqueDiv></StyledOpaqueDiv>
-  </>
+const PomodoroCompletion = ({isTimerCompleted}) => {
+  return isTimerCompleted && (
+    <>
+      <StyledCheckmark color="white" fontSize="5rem"/>
+      <StyledOpaqueDiv></StyledOpaqueDiv>
+    </>
+  );
+}
+
 
 export default PomodoroCompletion;

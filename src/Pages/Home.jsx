@@ -9,7 +9,7 @@ import {useEffect} from "react";
 const Home = ({pointsForTheDay, collectPoints}) => {
   const alertUser = e => {
     e.preventDefault();
-    e.returnValue = 'Hello pls';
+    e.returnValue = '';
   }
 
   useEffect(() => {

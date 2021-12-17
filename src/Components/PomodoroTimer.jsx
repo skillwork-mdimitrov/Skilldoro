@@ -13,8 +13,8 @@ const PomodoroTimer = ({collectPoints}) => {
   }
   const [countdown, setCountdown] = useState(Date.now() + 1500000);
   const [timerType, setTimerType] = useState("pomodoro");
-
   const countdownTimer = useRef(null);
+  const [isTimerCompleted, setIsTimerCompleted] = useState(false);
 
   const workOrBreak = () => timerType === "pomodoro" ? "break" : "work";
 
@@ -55,12 +55,14 @@ const PomodoroTimer = ({collectPoints}) => {
 
     // Show notif
     show();
-  }
 
+    // Neshto
+    setIsTimerCompleted(true);
+  }
 
   return (
     <div className="pomodoro-container d-inline-flex flex-column align-content-center position-relative">
-      <PomodoroCompletion/>
+      <PomodoroCompletion isTimerCompleted={isTimerCompleted}/>
       <ButtonGroup aria-label="Basic example">
         <Button
           variant="secondary"
@@ -82,6 +84,7 @@ const PomodoroTimer = ({collectPoints}) => {
         </Button>
       </ButtonGroup>
       <Countdown
+        autoStart={false}
         ref={countdownTimer}
         daysInHours
         date={countdown}
