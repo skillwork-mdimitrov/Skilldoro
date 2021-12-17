@@ -2,34 +2,60 @@ import Button from 'react-bootstrap/Button';
 import {Breadcrumb} from "react-bootstrap";
 import {ImUpload} from 'react-icons/im';
 import {Link} from "react-router-dom";
+import styled from "styled-components";
+
+const StyledLinks = styled(Breadcrumb.Item)`
+  a {
+    color: #B2E1FB;
+    text-decoration: none;
+    
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+`;
+
+const StyledButtons = styled(Button)`
+  background-color: #B2E1FB;
+  color: black;
+  
+  &:hover{
+    background-color: #B2E1FB;
+    color: white;
+    font-weight: bold;
+  }
+  &:focus{
+    background-color: black;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  }
+`;
 
 const Header = ({pointsForTheDay}) => {
   return (
-    <header className="d-flex justify-content-around align-items-center m-2 mb-3">
+    <header className="d-flex justify-content-around align-items-center mb-3">
       <div className="points-container">
         <div className="d-flex align-items-center">
           <span title="Don't forget to upload your points before leaving">
             Points: {pointsForTheDay} - 
           </span>
-          <Button variant="light"
-                  className="d-inline-flex align-items-center gap-2 p-1 border-dark">
+          <StyledButtons className="d-inline-flex align-items-center gap-2 p-1 border-dark">
             <span>Upload</span>
             <ImUpload />
-          </Button>
+          </StyledButtons>
         </div>
       </div>
-      <h1>Skilldoro™</h1>
+      <h1 className="text-white">Skilldoro™</h1>
 
       <Breadcrumb>
-        <Breadcrumb.Item>
+        <StyledLinks>
           <Link to="/">Home</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
+        </StyledLinks>
+        <StyledLinks>
           <Link to="/check-points">Check points</Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
+        </StyledLinks>
+        <StyledLinks>
           <Link to="/rewards">Rewards</Link>
-        </Breadcrumb.Item>
+        </StyledLinks>
       </Breadcrumb>
     </header>
   )
