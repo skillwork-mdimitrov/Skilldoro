@@ -4,6 +4,16 @@ import {useEffect, useState} from "react";
 import Button from "react-bootstrap/Button";
 import {ButtonGroup} from "react-bootstrap";
 import PomodoroModal from "../Components/PomodoroModal";
+import styled from "styled-components";
+
+const StyledHomePage = styled.div`
+  background-image: url("https://img5.goodfon.com/wallpaper/nbig/c/f3/synth-retrowave-synthwave-new-retro-wave-sintveiv-retrove-14.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  min-height: 100vh;
+`;
 
 /*
   TODO Sometimes doesn't start immediately
@@ -28,9 +38,8 @@ const Home = ({pointsForTheDay, collectPoints}) => {
   }, [pointsForTheDay])
 
   return (
-    <>
+      <StyledHomePage>
       <PomodoroModal show={show} handleClose={handleClose} handleShow={handleShow}/>
-
       <Header pointsForTheDay={pointsForTheDay} />
       <ButtonGroup className="w-100 mb-3">
         <Button
@@ -49,7 +58,7 @@ const Home = ({pointsForTheDay, collectPoints}) => {
         </Button>
       </ButtonGroup>
       <TimersCollection collectPoints={collectPoints}/>
-    </>
+    </StyledHomePage>
   )
 }
 
