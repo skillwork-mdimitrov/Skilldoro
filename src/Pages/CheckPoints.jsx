@@ -19,8 +19,6 @@ const CheckPoints = ({pointsForTheDay}) => (
             <input type="text"/>
             <Button variant="success">Check Your Points</Button>
         </div>
-
-        <span>Hello Peter, your points are: <strong>7227</strong></span>
     </div>
   </StyledCheckPoints>
 );
