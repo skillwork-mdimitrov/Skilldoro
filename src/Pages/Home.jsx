@@ -1,15 +1,11 @@
 import Header from "../Components/Header"
 import TimersCollection from "../Components/TimersCollection";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
-const Home = () => {
-  const [pointsForTheDay, setPointsForTheDay] = useState(0);
-  const collectPoints = () =>
-    setPointsForTheDay(pointsForTheDay + 10);
-
+const Home = ({pointsForTheDay, collectPoints}) => {
   const alertUser = e => {
     e.preventDefault();
-    e.returnValue = '';
+    e.returnValue = 'Hello pls';
   }
 
   useEffect(() => {
