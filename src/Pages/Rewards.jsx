@@ -40,15 +40,6 @@ const Rewards = ({pointsForTheDay}) => {
                 />
 
                 <SingleReward
-                    rewardImage={SpotifyImage}
-                    rewardName="Spotify subscription"
-                    rewardPoints="500"
-                    rewardDescription="Nearly everybody has a preferred work playlist.
-                    So you’re grooving along, in the zone, and then—screech—a horribly jarring ad comes on and ruins your focus."
-                    onClick={clickHandler}
-                />
-
-                <SingleReward
                     rewardImage={JuicyCarImg}
                     rewardName="Juicy car"
                     rewardPoints="2500"
@@ -117,6 +108,16 @@ const Rewards = ({pointsForTheDay}) => {
                     rewardDescription="You can take 5000 leva"
                     onClick={clickHandler}
                 />
+
+                <SingleReward
+                  rewardImage={SpotifyImage}
+                  rewardName="Spotify subscription"
+                  rewardPoints="500"
+                  rewardDescription="Nearly everybody has a preferred work playlist.
+                    So you’re grooving along, in the zone, and then—screech—a horribly jarring ad comes on and ruins your focus."
+                  onClick={clickHandler}
+                />
+
                 <SingleReward
                     rewardImage={PluralsightBlackImg}
                     rewardName="Pluralsight 1 year subscription"
