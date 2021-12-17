@@ -13,11 +13,3 @@ const TimersCollection = ({collectPoints}) =>
   </main>
 
 export default TimersCollection;
-
-/*
-  main
-    div.pomodoro-container
-      div.period
-      div.timer
-      div.btn-container
- */
