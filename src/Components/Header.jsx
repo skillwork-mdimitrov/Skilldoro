@@ -30,9 +30,15 @@ const StyledButtons = styled(Button)`
   }
 `;
 
+const StyledHeading = styled.h1`
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+`;
+
 const Header = ({pointsForTheDay}) => {
   return (
-    <header className="d-flex justify-content-around align-items-center mb-3">
+    <header className="d-flex justify-content-around align-items-center flex-wrap-reverse flex-lg-nowrap mb-3">
       <div className="points-container">
         <div className="d-flex align-items-center">
           <span title="Don't forget to upload your points before leaving">
@@ -44,9 +50,9 @@ const Header = ({pointsForTheDay}) => {
           </StyledButtons>
         </div>
       </div>
-      <h1 className="text-white">Skilldoro™</h1>
+      <StyledHeading className="text-white pt-2">Skilldoro™</StyledHeading>
 
-      <Breadcrumb>
+      <Breadcrumb className="py-3 py-lg-0">
         <StyledLinks>
           <Link to="/">Home</Link>
         </StyledLinks>
