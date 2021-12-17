@@ -9,11 +9,11 @@ import Rewards from "./Pages/Rewards";
 function App() {
   return (
     <div className="App">
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/check-points" element={<CheckPoints />} />
-            <Route path="/rewards" element={<Rewards />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/check-points" element={<CheckPoints />} />
+        <Route path="/rewards" element={<Rewards />} />
+      </Routes>
     </div>
   );
 }
