@@ -19,7 +19,7 @@ const StyledHomePage = styled.div`
   TODO Sometimes doesn't start immediately
  */
 
-const Home = ({pointsForTheDay, collectPoints}) => {
+const Home = ({pointsForTheDay, collectPoints, resetPoints}) => {
   const alertUser = e => {
     e.preventDefault();
     e.returnValue = '';
@@ -48,7 +48,7 @@ const Home = ({pointsForTheDay, collectPoints}) => {
           handleShow={handleShow}
           isShortBreak={isShortBreak}
         />
-        <Header pointsForTheDay={pointsForTheDay} />
+        <Header pointsForTheDay={pointsForTheDay} resetPoints={resetPoints}/>
         <ButtonGroup className="w-100 mb-3">
           <Button
             variant="secondary"

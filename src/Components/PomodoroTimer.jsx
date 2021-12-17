@@ -24,7 +24,7 @@ const PomodoroTimer = ({collectPoints}) => {
     "10_mins": 2000,
     "5_mins": 2000,
   }
-  const [countdown, setCountdown] = useState(Date.now() + 1500000);
+  const [countdown, setCountdown] = useState(Date.now() + 3000);
   const [isTimerCompleted, setIsTimerCompleted] = useState(false);
   const [timerType, setTimerType] = useState("pomodoro");
   const countdownTimer = useRef(null);

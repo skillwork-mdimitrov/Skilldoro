@@ -3,6 +3,7 @@ import {Breadcrumb} from "react-bootstrap";
 import {ImUpload} from 'react-icons/im';
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import {getUserData, writeUserData} from "../utils/firebase";
 
 const StyledLinks = styled(Breadcrumb.Item)`
   a {
@@ -36,7 +37,21 @@ const StyledHeading = styled.h1`
   }
 `;
 
-const Header = ({pointsForTheDay}) => {
+const Header = ({pointsForTheDay, resetPoints}) => {
+  const onUpload = () => {
+    if(pointsForTheDay > 0) {
+      prompt("Please enter your two names");
+      writeUserData(
+        "1",
+        "Maksim Dimitrov",
+        parseInt(getUserData() + pointsForTheDay)
+      );
+      resetPoints();
+    } else {
+      alert("Complete at least 1 pomodoro first");
+    }
+  }
+
   return (
     <header className="d-flex justify-content-around align-items-center flex-wrap-reverse flex-lg-nowrap mb-3">
       <div className="points-container">
@@ -45,7 +60,7 @@ const Header = ({pointsForTheDay}) => {
             Points: {pointsForTheDay} - 
           </span>
           <StyledButtons className="d-inline-flex align-items-center gap-2 p-1 border-dark">
-            <span>Upload</span>
+            <span onClick={onUpload}>Upload</span>
             <ImUpload />
           </StyledButtons>
         </div>
