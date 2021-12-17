@@ -1,13 +1,8 @@
 import Button from 'react-bootstrap/Button';
-import { ImUpload } from 'react-icons/im';
 import {Breadcrumb} from "react-bootstrap";
-import {useState} from "react";
+import {ImUpload} from 'react-icons/im';
 
-const Header = () => {
-  const [pointsForTheDay, setPointsForTheDay] = useState(0);
-  const collectPoints = () =>
-    setPointsForTheDay(pointsForTheDay + 10);
-
+const Header = ({pointsForTheDay}) => {
   return (
     <header className="d-flex justify-content-around align-items-center m-2 mb-3">
       <div className="points-container">

@@ -3,14 +3,15 @@ import Button from "react-bootstrap/Button";
 import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
 
-const PomodoroTimer = () => {
+const PomodoroTimer = ({collectPoints}) => {
   const PLUS = {
-    "25_mins": 10000,
+    "25_mins": 2000,
     "10_mins": 600000,
-    "5_mins": 300000,
+    "5_mins": 2000,
   }
-
   const [countdown, setCountdown] = useState(Date.now() + 1500000);
+  const [timerType, setTimerType] = useState("pomodoro");
+
   const countdownTimer = useRef(null);
 
   /**
@@ -22,12 +23,15 @@ const PomodoroTimer = () => {
   const setTimer = (timer_type) => {
     switch (timer_type) {
       case "pomodoro":
+        setTimerType("pomodoro");
         setCountdown(Date.now() + PLUS["25_mins"]);
         break;
       case 'short_break':
+        setTimerType("short_break");
         setCountdown(Date.now() + PLUS["5_mins"]);
         break;
       case 'long_break':
+        setTimerType("long_break");
         setCountdown(Date.now() + PLUS["10_mins"]);
         break;
       default:
@@ -36,7 +40,7 @@ const PomodoroTimer = () => {
     }
   }
 
-  const onTimerFinish = () => {}
+  const onTimerFinish = () => timerType === "pomodoro" && collectPoints();
 
   return (
     <div className="pomodoro-container d-inline-flex flex-column align-content-center">

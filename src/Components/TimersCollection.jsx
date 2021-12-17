@@ -1,15 +1,15 @@
 import PomodoroTimer from "./PomodoroTimer";
 
-const TimersCollection = () =>
+const TimersCollection = ({collectPoints}) =>
   <main className="d-flex gap-5 flex-wrap justify-content-center">
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
-    <PomodoroTimer />
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
+    <PomodoroTimer collectPoints={collectPoints}/>
   </main>
 
 export default TimersCollection;
