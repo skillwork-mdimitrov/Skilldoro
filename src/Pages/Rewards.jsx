@@ -9,13 +9,13 @@ import MoneyImg from '../images/money.jpg';
 import AppleMusicImg from '../images/apple-music.jpg';
 import BeerImg from '../images/beers.jpg';
 
-const Rewards = () => {
+const Rewards = ({pointsForTheDay}) => {
     const clickHandler = () => {
         alert('Are you sure you want to take this reward?');
     }
     return (
         <>
-            <Header/>
+            <Header pointsForTheDay={pointsForTheDay}/>
 
             <div className="rewards d-flex justify-content-around flex-wrap">
                 <SingleReward

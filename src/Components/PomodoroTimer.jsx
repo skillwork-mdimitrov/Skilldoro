@@ -5,20 +5,22 @@ import {useRef, useState} from "react";
 import { useBrowserNotifications } from 'use-browser-notifications';
 
 const PomodoroTimer = ({collectPoints}) => {
-  const { show } = useBrowserNotifications({
-    title: 'Skilldoro notification',
-    body: 'It\'s time for a short break!',
-  });
-
-  const PLUS = {
+   const PLUS = {
     "25_mins": 2000,
-    "10_mins": 600000,
+    "10_mins": 2000,
     "5_mins": 2000,
   }
   const [countdown, setCountdown] = useState(Date.now() + 1500000);
   const [timerType, setTimerType] = useState("pomodoro");
 
   const countdownTimer = useRef(null);
+
+  const workOrBreak = () => timerType === "pomodoro" ? "break" : "work";
+
+  const { show } = useBrowserNotifications({
+    title: 'Skilldoro says',
+    body: `It's time for ${workOrBreak()}!`,
+  });
 
   /**
    * Choose between ↓
@@ -46,7 +48,14 @@ const PomodoroTimer = ({collectPoints}) => {
     }
   }
 
-  const onTimerFinish = () => timerType === "pomodoro" && collectPoints();
+  const onTimerFinish = () => {
+    // Update points
+    timerType === "pomodoro" && collectPoints();
+
+    // Show notif
+    show();
+  }
+
 
   return (
     <div className="pomodoro-container d-inline-flex flex-column align-content-center">
@@ -78,9 +87,6 @@ const PomodoroTimer = ({collectPoints}) => {
         className="text-center"
       />
       <div className="btn-actions d-flex justify-content-around">
-        <div className="buttons">
-          <button className="button" onClick={show}>Show Notification</button>
-        </div>
         <Button
           variant="success"
           className="w-50"
