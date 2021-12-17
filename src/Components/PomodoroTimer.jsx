@@ -2,8 +2,14 @@ import {ButtonGroup} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
+import { useBrowserNotifications } from 'use-browser-notifications';
 
 const PomodoroTimer = ({collectPoints}) => {
+  const { show } = useBrowserNotifications({
+    title: 'Skilldoro notification',
+    body: 'It\'s time for a short break!',
+  });
+
   const PLUS = {
     "25_mins": 2000,
     "10_mins": 600000,
@@ -72,6 +78,9 @@ const PomodoroTimer = ({collectPoints}) => {
         className="text-center"
       />
       <div className="btn-actions d-flex justify-content-around">
+        <div className="buttons">
+          <button className="button" onClick={show}>Show Notification</button>
+        </div>
         <Button
           variant="success"
           className="w-50"
