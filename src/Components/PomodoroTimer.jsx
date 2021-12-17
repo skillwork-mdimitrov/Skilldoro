@@ -3,7 +3,6 @@ import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
 import {useBrowserNotifications} from 'use-browser-notifications';
 import PomodoroCompletion from "./PomodoroCompletion";
-import {ButtonGroup} from "react-bootstrap";
 
 const PomodoroTimer = ({collectPoints}) => {
   const PLUS = {
@@ -12,15 +11,15 @@ const PomodoroTimer = ({collectPoints}) => {
     "5_mins": 2000,
   }
   const [countdown, setCountdown] = useState(Date.now() + 1500000);
+  const [isTimerCompleted, setIsTimerCompleted] = useState(false);
   const [timerType, setTimerType] = useState("pomodoro");
   const countdownTimer = useRef(null);
-  const [isTimerCompleted, setIsTimerCompleted] = useState(false);
 
   const workOrBreak = () => timerType === "pomodoro" ? "break" : "work";
 
   const {show} = useBrowserNotifications({
     title: 'Skilldoro says',
-    body: `It's time for ${workOrBreak()}!`,
+    body: `It's time for a ${workOrBreak()}!`,
   });
 
   /**

@@ -1,17 +1,17 @@
-import Header from "../Components/Header"
-import TimersCollection from "../Components/TimersCollection";
-import {useEffect, useState} from "react";
 import Button from "react-bootstrap/Button";
-import {ButtonGroup} from "react-bootstrap";
+import Header from "../Components/Header"
 import PomodoroModal from "../Components/PomodoroModal";
+import TimersCollection from "../Components/TimersCollection";
 import styled from "styled-components";
+import {ButtonGroup} from "react-bootstrap";
+import {useEffect, useState} from "react";
 
 const StyledHomePage = styled.div`
   background-image: url("https://img5.goodfon.com/wallpaper/nbig/c/f3/synth-retrowave-synthwave-new-retro-wave-sintveiv-retrove-14.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
 `;
 
@@ -27,8 +27,11 @@ const Home = ({pointsForTheDay, collectPoints}) => {
 
   // MODAL
   const [show, setShow] = useState(false);
+  const [isShortBreak, setIsShortBreak] = useState(true);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const setShortBreak = (isShort) => setIsShortBreak(isShort);
 
   useEffect(() => {
     pointsForTheDay > 0 && window.addEventListener('beforeunload', alertUser);
@@ -39,12 +42,20 @@ const Home = ({pointsForTheDay, collectPoints}) => {
 
   return (
       <StyledHomePage>
-        <PomodoroModal show={show} handleClose={handleClose} handleShow={handleShow}/>
+        <PomodoroModal
+          show={show}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          isShortBreak={isShortBreak}
+        />
         <Header pointsForTheDay={pointsForTheDay} />
         <ButtonGroup className="w-100 mb-3">
           <Button
             variant="secondary"
-            onClick={handleShow}
+            onClick={() => {
+              handleShow();
+              setShortBreak(true);
+            }}
             className="border-dark border-2"
           >
             Short break
@@ -52,7 +63,10 @@ const Home = ({pointsForTheDay, collectPoints}) => {
           <Button
             variant="secondary"
             className="border-dark border-2"
-            onClick={handleShow}
+            onClick={() => {
+              handleShow(false);
+              setShortBreak(false);
+            }}
           >
             Long break
           </Button>
