@@ -47,6 +47,7 @@ const Header = ({pointsForTheDay, resetPoints}) => {
         parseInt(getUserData() + pointsForTheDay)
       );
       resetPoints();
+      alert("Points successfully added");
     } else {
       alert("Complete at least 1 pomodoro first");
     }
