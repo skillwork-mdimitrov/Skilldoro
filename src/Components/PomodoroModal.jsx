@@ -8,7 +8,7 @@ const PomodoroModal = ({show, handleClose, timerType}) => {
         onHide={handleClose}
         backdrop="static"
       >
-        <Modal.Body class="fs-1">
+        <Modal.Body class="fs-1 text-black text-center">
           05:00
         </Modal.Body>
       </Modal>
