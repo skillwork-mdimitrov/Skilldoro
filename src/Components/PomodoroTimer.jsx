@@ -3,6 +3,20 @@ import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
 import {useBrowserNotifications} from 'use-browser-notifications';
 import PomodoroCompletion from "./PomodoroCompletion";
+import styled from "styled-components";
+
+const StyledTimers = styled.div`
+  flex-basis: 20%;
+
+  @media only screen and (max-width: 1400px) {
+    flex-basis: 25%;
+  }
+`;
+
+const StyledSpan = styled.span`
+  background-color: #B2E1FB;
+  border-radius: 4px;
+`;
 
 const PomodoroTimer = ({collectPoints}) => {
   const PLUS = {
@@ -60,21 +74,16 @@ const PomodoroTimer = ({collectPoints}) => {
   }
 
   return (
-    <div className="pomodoro-container d-flex flex-column align-content-center position-relative">
+    <StyledTimers className="pomodoro-container d-flex flex-column align-content-center position-relative">
       <PomodoroCompletion isTimerCompleted={isTimerCompleted}/>
-      <Button
-        variant="secondary"
-        onClick={() => setTimer("pomodoro")}
-      >
-        Pomodoro
-      </Button>
+      <StyledSpan className="text-center text-black fs-4">Pomodoro</StyledSpan>
       <Countdown
         autoStart={false}
         ref={countdownTimer}
         daysInHours
         date={countdown}
         onComplete={onTimerFinish}
-        className="text-center"
+        className="text-center fs-4"
       />
       <div className="btn-actions d-flex justify-content-around">
         <Button
@@ -88,7 +97,7 @@ const PomodoroTimer = ({collectPoints}) => {
           onClick={() => countdownTimer.current.getApi().pause()}
         >Pause</Button>
       </div>
-    </div>
+    </StyledTimers>
   )
 }
 
