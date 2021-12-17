@@ -8,13 +8,24 @@ import IphoneImg from '../images/iphone.jpg';
 import MoneyImg from '../images/money.jpg';
 import AppleMusicImg from '../images/apple-music.jpg';
 import BeerImg from '../images/beers.jpg';
+import styled from "styled-components";
+
+const StyledRewards = styled.div`
+  background-image: url("https://img5.goodfon.com/wallpaper/nbig/c/f3/synth-retrowave-synthwave-new-retro-wave-sintveiv-retrove-14.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  min-height: 100vh;
+  color: black;
+`;
 
 const Rewards = ({pointsForTheDay}) => {
     const clickHandler = () => {
         alert('Are you sure you want to take this reward?');
     }
     return (
-        <>
+        <StyledRewards>
             <Header pointsForTheDay={pointsForTheDay}/>
 
             <div className="rewards d-flex justify-content-around flex-wrap">
@@ -93,7 +104,7 @@ const Rewards = ({pointsForTheDay}) => {
                     onClick={clickHandler}
                 />
             </div>
-        </>
+        </StyledRewards>
     )
 }
 
