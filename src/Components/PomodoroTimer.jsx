@@ -1,12 +1,12 @@
-import {ButtonGroup} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Countdown from 'react-countdown';
 import {useRef, useState} from "react";
-import { useBrowserNotifications } from 'use-browser-notifications';
+import {useBrowserNotifications} from 'use-browser-notifications';
 import PomodoroCompletion from "./PomodoroCompletion";
+import {ButtonGroup} from "react-bootstrap";
 
 const PomodoroTimer = ({collectPoints}) => {
-   const PLUS = {
+  const PLUS = {
     "25_mins": 2000,
     "10_mins": 2000,
     "5_mins": 2000,
@@ -18,7 +18,7 @@ const PomodoroTimer = ({collectPoints}) => {
 
   const workOrBreak = () => timerType === "pomodoro" ? "break" : "work";
 
-  const { show } = useBrowserNotifications({
+  const {show} = useBrowserNotifications({
     title: 'Skilldoro says',
     body: `It's time for ${workOrBreak()}!`,
   });
@@ -61,28 +61,14 @@ const PomodoroTimer = ({collectPoints}) => {
   }
 
   return (
-    <div className="pomodoro-container d-inline-flex flex-column align-content-center position-relative">
+    <div className="pomodoro-container d-flex flex-column align-content-center position-relative">
       <PomodoroCompletion isTimerCompleted={isTimerCompleted}/>
-      <ButtonGroup aria-label="Basic example">
-        <Button
-          variant="secondary"
-          onClick={() => setTimer("pomodoro")}
-        >
-          Pomodoro
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => setTimer("short_break")}
-        >
-          Short break
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => setTimer("long_break")}
-        >
-          Long break
-        </Button>
-      </ButtonGroup>
+      <Button
+        variant="secondary"
+        onClick={() => setTimer("pomodoro")}
+      >
+        Pomodoro
+      </Button>
       <Countdown
         autoStart={false}
         ref={countdownTimer}
@@ -96,12 +82,12 @@ const PomodoroTimer = ({collectPoints}) => {
           variant="success"
           className="w-50"
           onClick={() => countdownTimer.current.getApi().start()}
-          >Start</Button>
+        >Start</Button>
         <Button
           variant="danger"
           className="w-50"
           onClick={() => countdownTimer.current.getApi().pause()}
-          >Stop</Button>
+        >Pause</Button>
       </div>
     </div>
   )
