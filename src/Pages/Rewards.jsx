@@ -8,6 +8,9 @@ import IphoneImg from '../images/iphone.jpg';
 import MoneyImg from '../images/money.jpg';
 import AppleMusicImg from '../images/apple-music.jpg';
 import BeerImg from '../images/beers.jpg';
+import BitcoinImg from '../images/bitcoin.png';
+import PluralsightImg from '../images/pluralsight.png';
+import PluralsightBlackImg from '../images/pluralsight_black.png';
 import styled from "styled-components";
 
 const StyledRewards = styled.div`
@@ -17,7 +20,6 @@ const StyledRewards = styled.div`
   background-position-x: center;
   background-position-y: top;
   min-height: 100vh;
-  color: black;
 `;
 
 const Rewards = ({pointsForTheDay}) => {
@@ -28,7 +30,7 @@ const Rewards = ({pointsForTheDay}) => {
         <StyledRewards>
             <Header pointsForTheDay={pointsForTheDay}/>
 
-            <div className="rewards d-flex justify-content-around flex-wrap">
+            <div className="rewards d-flex justify-content-around flex-wrap gap-5">
                 <SingleReward
                     rewardImage={PlaystationImage}
                     rewardName="Playstation 5"
@@ -58,7 +60,7 @@ const Rewards = ({pointsForTheDay}) => {
                     rewardImage={MacbookImg}
                     rewardName="MacBook"
                     rewardPoints="3000"
-                    rewardDescription="To be added description"
+                    rewardDescription="The MacBook is a brand of Macintosh notebook computers designed and marketed by Apple Inc."
                     onClick={clickHandler}
                 />
 
@@ -74,14 +76,15 @@ const Rewards = ({pointsForTheDay}) => {
                     rewardImage={MoneyImg}
                     rewardName="1000 leva"
                     rewardPoints="1000"
-                    rewardDescription="To be added description"
+                    rewardDescription="You can take 1000 leva"
                     onClick={clickHandler}
                 />
                 <SingleReward
                     rewardImage={AppleMusicImg}
                     rewardName="Apple Music"
                     rewardPoints="500"
-                    rewardDescription="Apple Music is a subscription-based music streaming service, like Spotify, offering access to over 90 million songs."
+                    rewardDescription="Apple Music is a subscription-based music streaming service, like Spotify,
+                    offering access to over 90 million songs."
                     onClick={clickHandler}
                 />
                 <SingleReward
@@ -92,15 +95,34 @@ const Rewards = ({pointsForTheDay}) => {
                     onClick={clickHandler}
                 />
                 <SingleReward
-                    rewardName="Will be added soon"
-                    rewardPoints="0"
-                    rewardDescription="Soon"
+                    rewardImage={BitcoinImg}
+                    rewardName="1 Bitcoin"
+                    rewardPoints="20 000"
+                    rewardDescription="Bitcoin is a decentralized digital currency created in January 2009.
+                     It follows the ideas set out in a white paper by the mysterious and pseudonymous Satoshi Nakamoto."
                     onClick={clickHandler}
                 />
                 <SingleReward
-                    rewardName="Will be added soon"
-                    rewardPoints="0"
-                    rewardDescription="Soon"
+                    rewardImage={PluralsightImg}
+                    rewardName="Pluralsight subscription"
+                    rewardPoints="700"
+                    rewardDescription="Pluralsight is an online learning and workforce development
+                     platform that helps businesses and individuals adjust to changing technology."
+                    onClick={clickHandler}
+                />
+                <SingleReward
+                    rewardImage={MoneyImg}
+                    rewardName="5000 leva"
+                    rewardPoints="5000"
+                    rewardDescription="You can take 5000 leva"
+                    onClick={clickHandler}
+                />
+                <SingleReward
+                    rewardImage={PluralsightBlackImg}
+                    rewardName="Pluralsight 1 year subscription"
+                    rewardPoints="3000"
+                    rewardDescription="Pluralsight is an online learning and workforce development
+                     platform that helps businesses and individuals adjust to changing technology."
                     onClick={clickHandler}
                 />
             </div>
